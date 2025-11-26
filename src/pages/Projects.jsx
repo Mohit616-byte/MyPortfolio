@@ -5,37 +5,29 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
-            title: 'E-Commerce Dashboard',
-            description: 'A comprehensive dashboard for managing products, orders, and analytics. Features real-time data visualization and dark mode.',
-            tech: ['React', 'Tailwind', 'Recharts'],
+            title: 'E-Commerce Platform',
+            description: 'A full-featured online shopping platform with cart functionality, payment integration, and admin dashboard.',
+            tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
             github: '#',
             live: '#',
             color: 'bg-blue-50'
         },
         {
             title: 'Task Management App',
-            description: 'A collaborative task manager with drag-and-drop functionality, user authentication, and team workspaces.',
-            tech: ['React', 'Firebase', 'DnD Kit'],
+            description: 'Collaborative task manager with real-time updates, drag-and-drop interface, and team collaboration features.',
+            tech: ['React', 'Firebase', 'Tailwind CSS'],
             github: '#',
             live: '#',
             color: 'bg-purple-50'
         },
         {
-            title: 'Weather Forecast',
-            description: 'A beautiful weather app providing accurate forecasts, location detection, and detailed atmospheric data.',
-            tech: ['React', 'OpenWeather API', 'Glassmorphism'],
-            github: '#',
-            live: '#',
-            color: 'bg-amber-50'
-        },
-        {
-            title: 'Portfolio Website',
-            description: 'A modern, responsive portfolio website built to showcase skills and projects with smooth animations.',
-            tech: ['React', 'Framer Motion', 'Tailwind'],
+            title: 'Weather Dashboard',
+            description: 'Beautiful weather application with location-based forecasts, interactive maps, and detailed weather metrics.',
+            tech: ['React', 'OpenWeather API', 'Chart.js'],
             github: '#',
             live: '#',
             color: 'bg-emerald-50'
-        }
+        },
     ];
 
     return (
@@ -50,10 +42,10 @@ const Projects = () => {
                     Here are some of the projects I've worked on. Each one was an opportunity to learn something new and solve interesting problems.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
                         <motion.div
-                            key={index}
+                            key={project.title}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}

@@ -16,7 +16,7 @@ const About = () => {
                 <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                     <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
                         <p>
-                            Hello! I'm Mohit, a passionate Frontend Developer and UI Designer based in India.
+                            Hello! I'm Mohit, a B.Tech CSE AI student and a passionate Frontend Developer and UI Designer based in India.
                             My journey began with a curiosity for how things work on the web, which quickly evolved into a love for crafting beautiful, functional interfaces.
                         </p>
                         <p>
@@ -24,7 +24,8 @@ const About = () => {
                             I specialize in building responsive web applications using React and Tailwind CSS, ensuring every pixel serves a purpose.
                         </p>
                         <p>
-                            When I'm not coding, you can find me exploring new design trends, contributing to open source, or sipping a good cup of coffee while brainstorming my next project.
+                            When I'm not coding, you can find me playing cricket or watching movies and series as I am a huge cinephile.
+                            I also love exploring new design trends and sipping a good cup of coffee while brainstorming my next project.
                         </p>
                     </div>
 
@@ -37,7 +38,7 @@ const About = () => {
                         <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                             <Palette className="text-violet-600 mb-3" size={32} />
                             <h3 className="font-bold text-slate-800">Design</h3>
-                            <p className="text-sm text-slate-500">UI/UX, Figma</p>
+                            <p className="text-sm text-slate-500">UI/UX, Figma, Canva</p>
                         </div>
                         <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                             <Terminal className="text-emerald-600 mb-3" size={32} />

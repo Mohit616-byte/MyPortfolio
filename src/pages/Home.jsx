@@ -60,11 +60,18 @@ const Home = () => {
                     className="flex-1 flex justify-center md:justify-end relative"
                 >
                     <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+
+                        {/* Background Glow */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-violet-600 rounded-full opacity-10 blur-2xl animate-pulse"></div>
-                        <div className="relative w-full h-full rounded-full border-4 border-white shadow-2xl overflow-hidden bg-slate-100 flex items-center justify-center">
-                            {/* Placeholder for profile image */}
-                            <span className="text-6xl font-bold text-indigo-200">MP</span>
-                            {/* <img src="/path/to/image.jpg" alt="Mohit Panchal" className="w-full h-full object-cover" /> */}
+
+                        {/* Circular Image Wrapper */}
+                        <div className="relative w-full h-full rounded-full border-4 border-white shadow-2xl overflow-hidden bg-slate-100">
+                            {/* Your Image */}
+                            <img
+                                src="/image/Myphoto.webp"
+                                alt="Mohit Panchal"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
 
                         {/* Floating badges */}
