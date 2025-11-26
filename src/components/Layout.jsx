@@ -1,0 +1,164 @@
+import React, { useState } from 'react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+
+const Layout = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+
+    const closeMenu = () => setIsMenuOpen(false);
+
+    const navLinks = [
+        { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
+        { name: 'Skills', path: '/skills' },
+        { name: 'Projects', path: '/projects' },
+        { name: 'Designs', path: '/designs' },
+        { name: 'Contact', path: '/contact' },
+    ];
+
+    const handleWhatsAppClick = () => {
+        window.open('https://wa.me/918851521908?text=Hi%20Mohit%2C%20I%20want%20to%20discuss%20a%20project%20with%20you!', '_blank');
+    };
+
+    return (
+        <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-700">
+            <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200/50 shadow-sm transition-all duration-300">
+                <div className="container mx-auto px-6 py-4">
+                    <div className="flex justify-between items-center">
+                        {/* Logo */}
+                        <Link
+                            to="/"
+                            className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+                            onClick={closeMenu}
+                        >
+                            Mohit Panchal
+                        </Link>
+
+                        {/* Desktop Menu */}
+                        <div className="hidden md:flex items-center space-x-1">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
+                                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${location.pathname === link.path
+                                        ? 'text-indigo-600 bg-indigo-50'
+                                        : 'text-slate-600 hover:text-indigo-600 hover:bg-slate-50'
+                                        }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+
+                            {/* WhatsApp Icon Link */}
+                            <a
+                                href="https://wa.me/918851521908?text=Hi%20Mohit,%20I%20like%20your%20project%20and%20I%20would%20like%20to%20work%20with%20you."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="WhatsApp"
+                                className="ml-4 text-slate-600 hover:text-green-600 transition-colors duration-200 hover:scale-110 transform"
+                            >
+                                <FaWhatsapp size={24} />
+                            </a>
+                        </div>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="md:hidden p-2 text-slate-600 hover:text-indigo-600 hover:bg-slate-100 rounded-lg transition-all focus:outline-none"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
+
+                    {/* Mobile Menu Overlay */}
+                    {isMenuOpen && (
+                        <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-lg border-b border-slate-200 shadow-lg py-4 px-6 animate-in slide-in-from-top-5 duration-200">
+                            <div className="flex flex-col space-y-2">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        to={link.path}
+                                        className={`px-4 py-3 text-base font-medium rounded-lg transition-all ${location.pathname === link.path
+                                            ? 'text-indigo-600 bg-indigo-50'
+                                            : 'text-slate-600 hover:text-indigo-600 hover:bg-slate-50'
+                                            }`}
+                                        onClick={closeMenu}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ))}
+
+                                {/* Mobile WhatsApp Button — REMOVED */}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </nav>
+
+            <main className="flex-grow">
+                <Outlet />
+            </main>
+
+            <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-400 py-12">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                        {/* Footer Brand */}
+                        <div className="text-center md:text-left">
+                            <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent mb-2">
+                                Mohit Panchal
+                            </h3>
+                            <p className="text-sm text-slate-400">Building digital experiences that matter.</p>
+                            <p className="text-xs text-slate-500 mt-1">Gurugram, Haryana, India</p>
+                        </div>
+
+                        {/* Social Links */}
+                        <div className="flex items-center gap-4">
+                            <a
+                                href="#"
+                                className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all hover:scale-110"
+                                aria-label="GitHub"
+                            >
+                                <Github size={20} />
+                            </a>
+                            <a
+                                href="#"
+                                className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all hover:scale-110"
+                                aria-label="LinkedIn"
+                            >
+                                <Linkedin size={20} />
+                            </a>
+                            <a
+                                href="mailto:mohit616gigabyte@gmail.com"
+                                className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all hover:scale-110"
+                                aria-label="Email"
+                            >
+                                <Mail size={20} />
+                            </a>
+                            <a
+                                href="https://wa.me/918851521908?text=Hi%20Mohit,%20I%20like%20your%20project%20and%20I%20would%20like%20to%20work%20with%20you."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-3 bg-green-600 hover:bg-green-500 rounded-lg transition-all hover:scale-110 text-white"
+                                aria-label="WhatsApp"
+                            >
+                                <FaWhatsapp size={20} />
+                            </a>
+                        </div>
+
+                        {/* Copyright */}
+                        <p className="text-sm text-slate-500">
+                            &copy; {new Date().getFullYear()} Mohit Panchal. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    );
+};
+
+export default Layout;
+
+
